@@ -1,5 +1,7 @@
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class MenuItem {
     private final String name;
@@ -27,7 +29,12 @@ public class MenuItem {
         this.ingredients.put(item, quantity);
     }
 
+    //hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+    public void removeNullIngredients() {
+        this.ingredients.keySet().removeIf(Objects::isNull);
+    }
+
     public Map<InventoryItem, Double> getIngredients() {
-        return this.ingredients; // Retorna o mapa de ingredientes diretamente
+        return Collections.unmodifiableMap(this.ingredients); // Retorna uma versão somente-leitura
     }
 }

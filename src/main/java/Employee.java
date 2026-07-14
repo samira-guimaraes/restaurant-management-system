@@ -72,6 +72,8 @@ public class Employee {
                 return isWaiterAllowed(feature);
             case CHEF:
                 return isChefAllowed(feature);
+            case EMPLOYEE:
+                return false;
             default:
                 throw new IllegalArgumentException("Unknown role: " + role);
         }
@@ -205,6 +207,8 @@ public class Employee {
                         permission == PermissionFeature.EDIT_ORDER ||
                         permission == PermissionFeature.MANAGE_BOOKINGS ||
                         permission == PermissionFeature.MANAGE_TABLES;
+            case EMPLOYEE:
+                return false;
             default:
                 throw new IllegalArgumentException("Unknown role: " + role);
         }
